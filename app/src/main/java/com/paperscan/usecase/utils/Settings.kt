@@ -1,4 +1,4 @@
-package com.paperscan.usecase
+package com.paperscan.usecase.utils
 
 /**
  * Max Number of tiles to display in X Columns

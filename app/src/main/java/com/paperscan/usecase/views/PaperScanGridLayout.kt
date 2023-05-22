@@ -36,9 +36,9 @@ import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.paperscan.usecase.ANIMATION_FADE_IN_OUT
-import com.paperscan.usecase.GRID_COLUMNS
-import com.paperscan.usecase.TILE_CELL_ANIMATION
+import com.paperscan.usecase.utils.ANIMATION_FADE_IN_OUT
+import com.paperscan.usecase.utils.GRID_COLUMNS
+import com.paperscan.usecase.utils.TILE_CELL_ANIMATION
 import com.paperscan.usecase.modelViews.PaperScanViewModel
 import com.paperscan.usecase.models.Tile
 import com.paperscan.usecase.ui.theme.SelectedTile
@@ -56,7 +56,7 @@ import com.paperscan.usecase.ui.theme.tileWidth
  * View Grid Layout Implementation
  * ***/
 @Composable
-fun tileGridLayout(viewModel: PaperScanViewModel) {
+fun TileGridLayout(viewModel: PaperScanViewModel) {
     /***
      *1. Screen containing 10 rectangle tiles arranged in a grid pattern consisting of 2 columns.
      * ***/
@@ -68,7 +68,7 @@ fun tileGridLayout(viewModel: PaperScanViewModel) {
         content = {
             items(viewModel.tilesList.size) { index ->
                 val tile = viewModel.tilesList[index]
-                tileCell(viewModel = viewModel, tile)
+                TileCell(viewModel = viewModel, tile)
             }
         }
     )
@@ -78,7 +78,7 @@ fun tileGridLayout(viewModel: PaperScanViewModel) {
  * View Cell Implementation
  * ***/
 @Composable
-fun tileCell(viewModel: PaperScanViewModel, tile: Tile) {
+fun TileCell(viewModel: PaperScanViewModel, tile: Tile) {
 
     var calculatedOffset = Offset.Zero
     if (viewModel.handleTiles(tile)) {
@@ -149,6 +149,6 @@ fun tileCell(viewModel: PaperScanViewModel, tile: Tile) {
  * ***/
 @Preview(showBackground = true)
 @Composable
-fun tileGridLayoutPreview() {
-    tileGridLayout(viewModel = PaperScanViewModel())
+fun TileGridLayoutPreview() {
+    TileGridLayout(viewModel = PaperScanViewModel())
 }

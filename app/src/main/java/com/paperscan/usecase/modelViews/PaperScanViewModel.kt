@@ -6,9 +6,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.geometry.Offset
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.paperscan.usecase.DELAY_ANIMATION_TRANSITION
-import com.paperscan.usecase.DELAY_FETCHING_TILES_BY_ROW
-import com.paperscan.usecase.MAX_TILES_COUNT
+import com.paperscan.usecase.utils.DELAY_ANIMATION_TRANSITION
+import com.paperscan.usecase.utils.DELAY_FETCHING_TILES_BY_ROW
+import com.paperscan.usecase.utils.MAX_TILES_COUNT
 import com.paperscan.usecase.models.Tile
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -84,7 +84,7 @@ class PaperScanViewModel : ViewModel() {
             buttonPressed.value = true
 
             val copyselectedTilesList = selectedtilesList.toList()
-            var savelatestTile: Tile? = null
+            var savelatestTile: Tile?
 
 
             val defaultTileSize = tilesList.size

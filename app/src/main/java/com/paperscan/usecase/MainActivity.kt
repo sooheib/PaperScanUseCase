@@ -29,7 +29,7 @@ import com.paperscan.usecase.ui.theme.PaperScanUseCaseTheme
 import com.paperscan.usecase.ui.theme.buttonPadding
 import com.paperscan.usecase.ui.theme.buttonTextSize
 import com.paperscan.usecase.ui.theme.topBartextPadding
-import com.paperscan.usecase.views.tileGridLayout
+import com.paperscan.usecase.views.TileGridLayout
 
 /***
  * On Create MainActivity
@@ -59,9 +59,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun PaperScanScreen(viewModel: PaperScanViewModel) {
     Scaffold(
-        topBar = { topPaperScanAppBar(viewModel) },
+        topBar = { TopPaperScanAppBar(viewModel) },
     ) {
-        tileGridLayout(viewModel = viewModel)
+        TileGridLayout(viewModel = viewModel)
     }
 }
 
@@ -70,7 +70,7 @@ fun PaperScanScreen(viewModel: PaperScanViewModel) {
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun topPaperScanAppBar(viewModel: PaperScanViewModel) {
+fun TopPaperScanAppBar(viewModel: PaperScanViewModel) {
     TopAppBar(
         title = {
             Text(
@@ -88,7 +88,7 @@ fun topPaperScanAppBar(viewModel: PaperScanViewModel) {
             /** 3. merge button top right, enabled only when more than one tile is selected. Disabled
              * otherwise.
              */
-            mergeButton(
+            MergeButton(
                 buttonTitle = stringResource(R.string.merge_button),
                 isButtonEnabled = viewModel.selectedtilesList.size > 1,
                 onClickButton = { viewModel.mergeTiles() },
@@ -104,7 +104,7 @@ fun topPaperScanAppBar(viewModel: PaperScanViewModel) {
  * Button view Implementation
  * ***/
 @Composable
-fun mergeButton(buttonTitle: String, isButtonEnabled: Boolean, onClickButton: () -> Unit) {
+fun MergeButton(buttonTitle: String, isButtonEnabled: Boolean, onClickButton: () -> Unit) {
     val textColor = if (isButtonEnabled) MergeEnabledTextColor else MergeDisabledTextColor
     Text(
         text = buttonTitle,
