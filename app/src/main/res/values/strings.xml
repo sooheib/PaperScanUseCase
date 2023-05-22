@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PaperScanUseCase</string>
+    <string name="main_page_title">Select And Merge</string>
+    <string name="merge_button">Merge</string>
+    <string name="tile_text">Tile </string>
+
+</resources>
